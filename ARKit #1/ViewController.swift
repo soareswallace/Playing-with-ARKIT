@@ -30,13 +30,13 @@ class ViewController: UIViewController {
         sceneView.session.pause()
     }
     
-    func addBox(){
+    func addBox(x: Float = 0, y: Float = 0, z: Float = -0.2){
         let box = SCNBox(width: 0.05, height: 0.05, length: 0.05, chamferRadius:0)
         //we are setting the box size -> 1.0 float is 1meter
         
         let boxNode = SCNNode()
         boxNode.geometry = box
-        boxNode.position = SCNVector3(0, 0, -0.2) //stay on center with a little proximity to the camera
+        boxNode.position = SCNVector3(x, y, z) //stay on center with a little proximity to the camera
         //a rot node in a scnee that defines the coordinate system of the real world rendered by SceneKit
         
         sceneView.scene.rootNode.addChildNode(boxNode)
@@ -46,6 +46,12 @@ class ViewController: UIViewController {
         let tapLocation = recognizer.location(in: sceneView)
         let hitTestResults = sceneView.hitTest(tapLocation)
         guard let node = hitTestResults.first?.node else{
+            let hitTestResultWithFeaturePoints = sceneView.hitTest(tapLocation, types: .featurePoint)
+            
+            if let hitTestResultWithFeaturePoints = hitTestResultWithFeaturePoints.first{
+                let translation = hitTestResultWithFeaturePoints.worldTransform.translation
+                addBox(x: translation.x, y: translation.y, z: translation.z)
+            }
             return
         }
         node.removeFromParentNode()
@@ -54,8 +60,13 @@ class ViewController: UIViewController {
     func addTapGestureToSceneView(){
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(ViewController.didTap(withGestureRecognizer:)))
         sceneView.addGestureRecognizer(tapGestureRecognizer)
-        
     }
+}
 
+extension float4x4{
+    var translation: float3{
+        let translation = self.columns.3
+        return float3(translation.x, translation.y, translation.z)
+    }
 }
 
