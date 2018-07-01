@@ -14,8 +14,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var sceneView: ARSCNView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        addBox()
-        addTapGestureToSceneView()
+        configureLighting()
+        addPaperPlane()
         // Do any additional setup after loading the view, typically from a nib.
     }
     
@@ -30,36 +30,18 @@ class ViewController: UIViewController {
         sceneView.session.pause()
     }
     
-    func addBox(x: Float = 0, y: Float = 0, z: Float = -0.2){
-        let box = SCNBox(width: 0.05, height: 0.05, length: 0.05, chamferRadius:0)
-        //we are setting the box size -> 1.0 float is 1meter
-        
-        let boxNode = SCNNode()
-        boxNode.geometry = box
-        boxNode.position = SCNVector3(x, y, z) //stay on center with a little proximity to the camera
-        //a rot node in a scnee that defines the coordinate system of the real world rendered by SceneKit
-        
-        sceneView.scene.rootNode.addChildNode(boxNode)
-    }
-    
-    @objc func didTap(withGestureRecognizer recognizer: UIGestureRecognizer){
-        let tapLocation = recognizer.location(in: sceneView)
-        let hitTestResults = sceneView.hitTest(tapLocation)
-        guard let node = hitTestResults.first?.node else{
-            let hitTestResultWithFeaturePoints = sceneView.hitTest(tapLocation, types: .featurePoint)
-            
-            if let hitTestResultWithFeaturePoints = hitTestResultWithFeaturePoints.first{
-                let translation = hitTestResultWithFeaturePoints.worldTransform.translation
-                addBox(x: translation.x, y: translation.y, z: translation.z)
-            }
-            return
+    func addPaperPlane(x: Float = 0, y: Float = 0, z: Float = -0.5){
+        guard let paperPlaneScene = SCNScene(named: "paperPlane.scn"), let paperPlaneNode = paperPlaneScene.rootNode.childNode(withName: "paperPlane", recursively: true)
+            else{
+                return
         }
-        node.removeFromParentNode()
+        paperPlaneNode.position = SCNVector3(x, y, z)
+        sceneView.scene.rootNode.addChildNode(paperPlaneNode)
     }
     
-    func addTapGestureToSceneView(){
-        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(ViewController.didTap(withGestureRecognizer:)))
-        sceneView.addGestureRecognizer(tapGestureRecognizer)
+    func configureLighting(){
+        sceneView.autoenablesDefaultLighting = true
+        sceneView.automaticallyUpdatesLighting = true
     }
 }
 
