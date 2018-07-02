@@ -12,10 +12,12 @@ import ARKit
 class ViewController: UIViewController {
 
     @IBOutlet weak var sceneView: ARSCNView!
+    let drone = Drone()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureLighting()
-        addCar()
+        addDrone()
         // Do any additional setup after loading the view, typically from a nib.
     }
     
@@ -30,23 +32,13 @@ class ViewController: UIViewController {
         sceneView.session.pause()
     }
     
-    func addCar(x: Float = 0, y: Float = 0, z: Float = -0.5){
-        guard let carScene = SCNScene(named: "car.dae") else {return}
-        let carNode = SCNNode()
-        let carSceneChildNodes = carScene.rootNode.childNodes
-        
-        for childNode in carSceneChildNodes{
-            carNode.addChildNode(childNode)
-        }
-        
-        carNode.position = SCNVector3(x, y, z)
-        carNode.scale = SCNVector3(0.5, 0.5, 0.5)
-        sceneView.scene.rootNode.addChildNode(carNode)
-    }
-    
     func configureLighting(){
         sceneView.autoenablesDefaultLighting = true
         sceneView.automaticallyUpdatesLighting = true
+    }
+    func addDrone(){
+        drone.loadModel()
+        sceneView.scene.rootNode.addChildNode(drone)
     }
 }
 

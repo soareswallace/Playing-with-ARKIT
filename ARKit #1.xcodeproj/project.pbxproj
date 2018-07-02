@@ -12,8 +12,10 @@
 		BA4B54BC20E97D7200F5749F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BA4B54BA20E97D7200F5749F /* Main.storyboard */; };
 		BA4B54BE20E97D7400F5749F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BA4B54BD20E97D7400F5749F /* Assets.xcassets */; };
 		BA4B54C120E97D7400F5749F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BA4B54BF20E97D7400F5749F /* LaunchScreen.storyboard */; };
-		BA4B54CA20E99B8400F5749F /* paperPlane.scn in Resources */ = {isa = PBXBuildFile; fileRef = BA4B54C920E99B8400F5749F /* paperPlane.scn */; };
-		BA4B54CC20E99E0C00F5749F /* car.dae in Resources */ = {isa = PBXBuildFile; fileRef = BA4B54CB20E99E0C00F5749F /* car.dae */; };
+		BA62F1ED20EAEAFB00232EA0 /* Drone.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA62F1EC20EAEAFB00232EA0 /* Drone.swift */; };
+		BAAC73A120E9B4D80085F1C6 /* car.dae in Resources */ = {isa = PBXBuildFile; fileRef = BAAC739F20E9B4D80085F1C6 /* car.dae */; };
+		BAAC73A220E9B4D80085F1C6 /* paperPlane.scn in Resources */ = {isa = PBXBuildFile; fileRef = BAAC73A020E9B4D80085F1C6 /* paperPlane.scn */; };
+		BAAC73A420E9B6880085F1C6 /* Drone_dae.dae in Resources */ = {isa = PBXBuildFile; fileRef = BAAC73A320E9B6880085F1C6 /* Drone_dae.dae */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,8 +26,10 @@
 		BA4B54BD20E97D7400F5749F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BA4B54C020E97D7400F5749F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BA4B54C220E97D7400F5749F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		BA4B54C920E99B8400F5749F /* paperPlane.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; name = paperPlane.scn; path = "../../../../ARKit3DDemo/ARKit3DDemo/3D Objects/paperPlane.scn"; sourceTree = "<group>"; };
-		BA4B54CB20E99E0C00F5749F /* car.dae */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml.dae; name = car.dae; path = "../../../../ARKit3DDemo/ARKit3DDemo/3D Objects/car.dae"; sourceTree = "<group>"; };
+		BA62F1EC20EAEAFB00232EA0 /* Drone.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Drone.swift; sourceTree = "<group>"; };
+		BAAC739F20E9B4D80085F1C6 /* car.dae */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml.dae; path = car.dae; sourceTree = "<group>"; };
+		BAAC73A020E9B4D80085F1C6 /* paperPlane.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = paperPlane.scn; sourceTree = "<group>"; };
+		BAAC73A320E9B6880085F1C6 /* Drone_dae.dae */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml.dae; name = Drone_dae.dae; path = "../../../../../Drone-Design/Drone_dae.dae"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +65,7 @@
 				BA4B54C820E99B6400F5749F /* 3D Objects */,
 				BA4B54B620E97D7200F5749F /* AppDelegate.swift */,
 				BA4B54B820E97D7200F5749F /* ViewController.swift */,
+				BA62F1EC20EAEAFB00232EA0 /* Drone.swift */,
 				BA4B54BA20E97D7200F5749F /* Main.storyboard */,
 				BA4B54BD20E97D7400F5749F /* Assets.xcassets */,
 				BA4B54BF20E97D7400F5749F /* LaunchScreen.storyboard */,
@@ -72,8 +77,9 @@
 		BA4B54C820E99B6400F5749F /* 3D Objects */ = {
 			isa = PBXGroup;
 			children = (
-				BA4B54C920E99B8400F5749F /* paperPlane.scn */,
-				BA4B54CB20E99E0C00F5749F /* car.dae */,
+				BAAC739F20E9B4D80085F1C6 /* car.dae */,
+				BAAC73A020E9B4D80085F1C6 /* paperPlane.scn */,
+				BAAC73A320E9B6880085F1C6 /* Drone_dae.dae */,
 			);
 			path = "3D Objects";
 			sourceTree = "<group>";
@@ -136,10 +142,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BA4B54CA20E99B8400F5749F /* paperPlane.scn in Resources */,
 				BA4B54C120E97D7400F5749F /* LaunchScreen.storyboard in Resources */,
+				BAAC73A120E9B4D80085F1C6 /* car.dae in Resources */,
 				BA4B54BE20E97D7400F5749F /* Assets.xcassets in Resources */,
-				BA4B54CC20E99E0C00F5749F /* car.dae in Resources */,
+				BAAC73A220E9B4D80085F1C6 /* paperPlane.scn in Resources */,
+				BAAC73A420E9B6880085F1C6 /* Drone_dae.dae in Resources */,
 				BA4B54BC20E97D7200F5749F /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -151,6 +158,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BA62F1ED20EAEAFB00232EA0 /* Drone.swift in Sources */,
 				BA4B54B920E97D7200F5749F /* ViewController.swift in Sources */,
 				BA4B54B720E97D7200F5749F /* AppDelegate.swift in Sources */,
 			);
