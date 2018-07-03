@@ -22,6 +22,46 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </arscnView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ahb-sE-BmJ">
+                                <rect key="frame" x="112" y="482" width="36" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <gestureRecognizers/>
+                                <state key="normal" title="Right"/>
+                                <connections>
+                                    <action selector="moveRightLongPRessed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="1HS-Da-n3F"/>
+                                    <outletCollection property="gestureRecognizers" destination="bJL-Fe-Sw7" appends="YES" id="OWa-oV-QVL"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6WQ-gU-AzW">
+                                <rect key="frame" x="19" y="482" width="30" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <gestureRecognizers/>
+                                <state key="normal" title="Left"/>
+                                <connections>
+                                    <action selector="moveLeftLongPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="LWz-hG-Ppa"/>
+                                    <outletCollection property="gestureRecognizers" destination="J5U-Pw-Fl6" appends="YES" id="fAi-hg-pOe"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9cQ-a0-wEI">
+                                <rect key="frame" x="65" y="446" width="30" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <gestureRecognizers/>
+                                <state key="normal" title="Up"/>
+                                <connections>
+                                    <action selector="upLongPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="LfG-dg-O0s"/>
+                                    <outletCollection property="gestureRecognizers" destination="bbg-X5-QeY" appends="YES" id="kxz-73-eqV"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m4W-z5-gwN">
+                                <rect key="frame" x="61" y="518" width="39" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <gestureRecognizers/>
+                                <state key="normal" title="Down"/>
+                                <connections>
+                                    <action selector="downLongPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="LLK-76-mgt"/>
+                                    <outletCollection property="gestureRecognizers" destination="6rl-Yz-Y2B" appends="YES" id="jb3-hn-Khq"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -31,6 +71,10 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.5" id="bbg-X5-QeY"/>
+                <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.5" id="J5U-Pw-Fl6"/>
+                <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.5" id="bJL-Fe-Sw7"/>
+                <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.5" id="6rl-Yz-Y2B"/>
             </objects>
             <point key="canvasLocation" x="136.875" y="125.70422535211267"/>
         </scene>
